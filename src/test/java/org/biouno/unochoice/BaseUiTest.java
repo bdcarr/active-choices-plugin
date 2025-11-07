@@ -59,6 +59,10 @@ public abstract class BaseUiTest {
         return StringUtils.isNotBlank(System.getenv("CI"));
     }
 
+    protected static boolean isHeadless() {
+        return StringUtils.isNotBlank(System.getenv("SELENIUM_HEADLESS")) || isCi();
+    }
+
     protected static final Duration MAX_WAIT = Duration.parse(System.getProperty("ui.loading.timeout", "PT300S"));
 
     @BeforeAll
@@ -80,7 +84,7 @@ public abstract class BaseUiTest {
     @BeforeEach
     public void setUp(JenkinsRule j) {
         this.j = j;
-        if (isCi()) {
+        if (isHeadless()) {
             driver = new ChromeDriver(new ChromeOptions().addArguments("--headless", "--disable-dev-shm-usage", "--no-sandbox"));
         } else {
             driver = new ChromeDriver(new ChromeOptions());

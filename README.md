@@ -578,6 +578,19 @@ by plug-ins, API or scripts. Please see [this issue](https://issues.jenkins-ci.o
 
 See the [CHANGES.md](https://github.com/jenkinsci/active-choices-plugin/blob/master/CHANGES.md) file.
 
+## Building
+
+This is the command I've been using to build the plugin, copy it to the repo root and run a local Jenkins instance (http://localhost:8080) to test it out:
+
+```shell
+(export SELENIUM_HEADLESS=true; export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/; mvn clean install -DskipTests && cp target/uno-choice.hpi uno-choice.hpi && mvn hpi:run)
+```
+
+* To test the checklist auto height thing, copy [param-script.txt](./param-script.txt) into the groovy script field of an Actve Choices Reactive checkbox list param.
+* I used `-DskipTests` because an unrelated test was failing, preventing the plugin from building. You should let the tests run to confirm you didn't break anything though.
+* If you run the tests, `SELENIUM_HEADLESS` will prevent it from spawning a million browser windows and getting in the way of whatever you're doing.
+* `JAVA_HOME` shouild point to wherever your own JDK install is. Good luck - my shell history says I ended up using `jenv` for this.
+
 ## Sponsors
 
 For commercial support, please get contact us via [@tupilabs](https://twitter.com/tupilabs).
