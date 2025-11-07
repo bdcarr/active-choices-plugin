@@ -348,7 +348,7 @@ var UnoChoice = UnoChoice || (jQuery3 => {
                     /*
                      * This height is equivalent to setting the number of rows displayed in a select/multiple
                      */
-                    parameterElement.style.height = newValues.length > 10 ? newValues.length * 21 + "px" : 'auto';
+                    parameterElement.style.height = 'auto';
                 } // if (parameterElement.children.length > 0 && parameterElement.children[0].tagName === 'DIV') {
             } // if (parameterElement.tagName === 'SELECT') { // } else if (parameterElement.tagName === 'DIV') {
         });
