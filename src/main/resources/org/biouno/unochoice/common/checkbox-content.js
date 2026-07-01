@@ -1,11 +1,3 @@
-window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".checkbox-content-data-holder").forEach((dataHolder) => {
-        const { itemCount, maxCount, randomName } = dataHolder.dataset;
-
-      if (itemCount > maxCount) {
-        document.getElementById(`ecp_${randomName}`).style.height = "255px";
-        document.getElementById(`ecp_${randomName}`).style.overflowY = "auto";
-      }
-
-    });
-});
+// Active Choices checkbox list params are intentionally rendered at their full
+// height with no fixed-height / scrollbar cap. Height is left to the natural flow
+// of the .ac-container flex column so the entire list is always visible.

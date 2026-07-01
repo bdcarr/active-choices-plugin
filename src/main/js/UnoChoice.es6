@@ -346,15 +346,11 @@ var UnoChoice = UnoChoice || (jQuery3 => {
                         }
                     } // if (parameterElement.classList.contains('dynamic_checkbox'))
                     /*
-                     * This height is equivalent to setting the number of rows displayed in a select/multiple
+                     * Render the list at its natural full height (no row cap / scrollbar);
+                     * the .ac-container flex column grows to fit all items.
                      */
-                    if (newValues.length > 10) {
-                        parameterElement.style.height = "255px";
-                        parameterElement.style.overflowY = "auto";
-                    }  else {
-                        parameterElement.style.overflowY = "unset";
-                        parameterElement.style.height = "unset";
-                    }
+                    parameterElement.style.overflowY = "unset";
+                    parameterElement.style.height = "unset";
                     Behaviour.applySubtree(parameterElement);
 
                 } // if (parameterElement.children.length > 0 && parameterElement.children[0].tagName === 'DIV') {

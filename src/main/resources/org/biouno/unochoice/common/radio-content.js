@@ -1,12 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".radio-content-data-holder").forEach((dataHolder) => {
-        const { itemCount, maxCount, randomName } = dataHolder.dataset;
-
-        if (itemCount > maxCount) {
-          document.getElementById(`ecp_${randomName}`).style.height = "255px";
-          document.getElementById(`ecp_${randomName}`).style.overflowY = "auto";
-        }
-    });
+    // Radio list params are intentionally rendered at their full height with no
+    // fixed-height / scrollbar cap (see checkbox-content.js); the .ac-container
+    // flex column grows to fit the entire list.
 
     document.querySelectorAll(".radio-content-radio-input").forEach((radioInput) => {
         radioInput.addEventListener("change", (event) => {
